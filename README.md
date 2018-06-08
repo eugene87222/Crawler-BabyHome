@@ -24,7 +24,5 @@ A simple [BabyHome](https://forum.babyhome.com.tw/) crawler.
 python main.py
 ```
 
-```
-if problem.exist() == True:
-  don't()
-```
+---
+If you have any problem, please [email](mailto:eugene87222@gmail.com) to me or open an issue.
