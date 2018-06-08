@@ -23,3 +23,8 @@ A simple [BabyHome](https://forum.babyhome.com.tw/) crawler.
 ```
 python main.py
 ```
+
+```
+if problem.exist() == True:
+  don't()
+```
