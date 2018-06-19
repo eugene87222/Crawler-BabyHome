@@ -55,7 +55,7 @@ def BuildTopicTree(file_tree, file_link, topic, tier, code, stop):
 		string += '|== '
 
 	string = string + topic.text + ' ' + code
-	print (string)
+	print(string)
 
 	file_tree.write(string + '\n')
 	file_link.write(code + ' ' + topic.find('a')['href'] + ' ' + topic.text + '\n')
@@ -113,7 +113,7 @@ def ReadTopicTree():
 
 	file = open('topic_tree.txt', 'r', encoding='utf-8')
 	for line in file:
-		print (line, end='')
+		print(line, end='')
 
 	file.close()
 

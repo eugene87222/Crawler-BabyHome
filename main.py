@@ -18,16 +18,16 @@ def main():
         TOPIC_URL = TOPIC_URL + '?year=' + year_want_to_crawl
 
         total_page_num = BHCrawler.GetTotalPageNum(TOPIC_URL)
-        print (u'Topic <{}> has {} pages within {} years.'.format(TOPIC, total_page_num, year_want_to_crawl))
+        print(u'Topic <{}> has {} pages within {} years.'.format(TOPIC, total_page_num, year_want_to_crawl))
 
         page_want_to_crawl = input(u'How many pages do you want to crawl? ')
         # if the input is valid (negative number, string, input nothing)
         if page_want_to_crawl == '' or not page_want_to_crawl.isdigit() or int(page_want_to_crawl) <= 0:
-            print ('EXIT')
+            print('EXIT')
         else:
             page_want_to_crawl = min(int(page_want_to_crawl), total_page_num)
-            print ('====================')
-            print (u'Topic: {}\nTime: within {} years\nPages: {}'.format(TOPIC, year_want_to_crawl, page_want_to_crawl))
+            print('====================')
+            print(u'Topic: {}\nTime: within {} years\nPages: {}'.format(TOPIC, year_want_to_crawl, page_want_to_crawl))
             
             start = time.time()
             
@@ -37,18 +37,18 @@ def main():
                 pages_link.append(url)
 
             posts = BHCrawler.GetPosts(pages_link)
-            print (u'{} posts in total'.format(len(posts)))
+            print(u'{} posts in total'.format(len(posts)))
 
             posts_data = BHCrawler.GetArticles(posts)
             
-            print (u'Spend {} seconds on crawling.'.format(time.time()-start))
+            print(u'Spend {} seconds on crawling.'.format(time.time()-start))
 
             ans = input('Save to database? [yes/no]:')
             if ans.lower() == 'yes':
                 BHCrawler.Save2DB('data.db', posts_data)
 
     else:
-        print (u'Topic code doesn\'t exist. Please check topic_tree.txt')
+        print(u'Topic code doesn\'t exist. Please check topic_tree.txt')
 
 if __name__ == '__main__':
     main()
